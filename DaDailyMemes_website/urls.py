@@ -21,13 +21,13 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', TemplateView.as_view(template_name="index.html"), name="index"),
-    path('', TemplateView.as_view(template_name="about.html"), name="about"),
-    path('', TemplateView.as_view(template_name="signin.html"), name="signin"),
-    path('', TemplateView.as_view(template_name="contact.html"), name="index"),
+    # path('', TemplateView.as_view(template_name="index.html"), name="index"),
+    # path('', TemplateView.as_view(template_name="about.html"), name="about"),
+    # path('', TemplateView.as_view(template_name="signin.html"), name="signin"),
+    # path('', TemplateView.as_view(template_name="contact.html"), name="index"),
 
-    # path('index', views.index, name="index"),
-    # path('about', views.about, name="about"),
-    # path('signin', views.signin, name="signin"),
-    # path('contact', views.contact, name="contact")
+    path('', views.index, name="index"),
+    path('about', views.about, name="about"),
+    path('signin', views.signin, name="signin"),
+    path('contact', views.contact, name="contact")
 ]
