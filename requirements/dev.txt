@@ -1,0 +1,3 @@
+# Developer requirements along with production requirements
+
+-r prod.txt
