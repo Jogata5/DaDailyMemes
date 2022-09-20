@@ -15,7 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from django.views.generic.base import TemplateView
+# from django.views.generic.base import TemplateView
+from django.contrib.auth import views as auth_views
 
 from . import views
 
@@ -29,5 +30,9 @@ urlpatterns = [
     path('', views.index, name="index"),
     path('about', views.about, name="about"),
     path('signin', views.signin, name="signin"),
-    path('contact', views.contact, name="contact")
+    path('contact', views.contact, name="contact"),
+
+    path('accounts/signin', auth_views.LoginView.as_view(template_name='accounts/signin.html'), name='signin')
+
+    #path('accounts/', include('django.contrib.auth.urls'))
 ]
