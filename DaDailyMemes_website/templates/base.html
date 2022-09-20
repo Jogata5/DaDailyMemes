@@ -9,8 +9,8 @@
     </head>
     <body>
         {% include 'navbar.html'%}
-        <img src="{%static '/theme/images/logo.png'%}" alt="DADAILYMEMES_TITLE"/>
-
+        <img src="{%static 'theme/images/logo.png'%}" alt="DADAILYMEMES_TITLE">
+        {% comment %} <h1> {%static 'theme/images/logo.png'%} </h1> {% endcomment %}
         <main>
             {%block content%}
             {% endblock %}
