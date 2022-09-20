@@ -1,5 +1,11 @@
+<<<<<<< HEAD
 <!-- temptlates/base.html -->
 {%load static%}
+=======
+<!-- templates/base.html -->
+{%load static%}
+
+>>>>>>> c20fa7949d6247ca2240fb97548eda825970c2bc
 <!DOCTYPE html>
 <html>
     <head>
@@ -8,8 +14,13 @@
     </head>
     <body>
         {% include 'navbar.html'%}
+<<<<<<< HEAD
         <img src="{%static 'theme/images/logo.png'%}" alt="DADAILYMEMES_TITLE"/>
 
+=======
+        <img src="{%static 'theme/images/logo.png'%}" alt="DADAILYMEMES_TITLE">
+        {% comment %} <h1> {%static 'theme/images/logo.png'%} </h1> {% endcomment %}
+>>>>>>> c20fa7949d6247ca2240fb97548eda825970c2bc
         <main>
             {%block content%}
 

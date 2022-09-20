@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %} Sign In {% endblock title%}
+
+{%block content%}
+Template sign in
+
+
+<h1>Sign In</h1>
+<form method="post">
+    {%csrf_token%}
+    {{ form.as_p}}
+    <button type = 'submit'>Login</button>
+</form>
+<body>
+  <h1>Da Daily Memes by Saul, Niccolo and Julian</h1>
+  <h2>WE DID IT BABY!!!<h2>
+      we bouta go HARD
+      <h3>Reviews</h3>
+      <h4>I LOVE THIS WEBSITE, CURED MY DEPRESSION! -Andrea <h4>
+</body>
+
+
+{% endblock %}

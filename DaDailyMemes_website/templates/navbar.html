@@ -7,4 +7,5 @@
     <span>{% if request.path == signin_url %}Sign In{% else%}<a href="{{ signin_url }}">Sign In</a>{% endif%}</span>
     {% url 'contact' as contact_url %}
     <span>{% if request.path == contact_url %}Contact{% else%}<a href="{{ contact_url }}">Contact</a>{% endif%}</span> 
+    
 <div>
