@@ -8,10 +8,15 @@
         <meta charset="utf-8">
         <title> {% block title %} DaDailyMemes {% endblock title%} </title>
     </head>
-    <body>
+    <body style ="background-color:green;" >
         {% include 'navbar.html'%}
 
-        <img src="{%static 'theme/images/logo.png'%}" alt="DADAILYMEMES_TITLE"/>
+        <img src=
+                "{%static 'theme/images/logo.png'%}"
+                alt="DADAILYMEMES_TITLE"
+                width = 2000
+                height = 1000>
+      
         <!-- dab -->
         <main>
             {%block content%}
