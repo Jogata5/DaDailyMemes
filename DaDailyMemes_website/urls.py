@@ -30,15 +30,11 @@ urlpatterns = [
     path('', views.index, name="index"),
     path('about', views.about, name="about"),
     path('signin', views.signin, name="signin"),
-<<<<<<< HEAD
-    path('contact', views.contact, name="contact")
-
-    
-=======
     path('contact', views.contact, name="contact"),
+    path('accounts/profile',views.ProfileView.as_view(), name = "profile"),
 
-    path('accounts/signin', auth_views.LoginView.as_view(template_name='accounts/signin.html'), name='signin')
-
+     #Django auth
+    path('accounts/signin', auth_views.LoginView.as_view(template_name='accounts/signin.html'), name='signin'),
+    path('accounts/signout', auth_views.LogoutView.as_view(), name = 'signout')
     #path('accounts/', include('django.contrib.auth.urls'))
->>>>>>> c20fa7949d6247ca2240fb97548eda825970c2bc
 ]
