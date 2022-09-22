@@ -18,5 +18,8 @@ def signin(request):
 def contact(request):
     return render(request, 'contact.html')
 
+def signup(request):
+    return render(request, 'accounts/signup.html')
+
 class ProfileView(LoginRequiredMixin,TemplateView):
     template_name = 'accounts/profile.html'
