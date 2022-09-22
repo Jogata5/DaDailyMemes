@@ -9,7 +9,7 @@
     
     <span style = "float:right">
         {% if user.is_authenticated %}
-            <span>Yo can you see this {{user.username}}?</span>
+            <span>Yo, what it do {{user.username}}!</span>
             <span><a href="{% url  'signout' %}">Sign Out</a></span>
         {% else %}
             <span><a href="{% url  'signin' %}">Sign In</a></span>

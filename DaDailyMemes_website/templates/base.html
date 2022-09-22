@@ -1,6 +1,7 @@
 <!-- templates/base.html -->
 {%load static%}
 
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -9,10 +10,14 @@
     </head>
     <body>
         {% include 'navbar.html'%}
-        <img src="{%static 'theme/images/logo.png'%}" alt="DADAILYMEMES_TITLE">
-        {% comment %} <h1> {%static 'theme/images/logo.png'%} </h1> {% endcomment %}
+
+        <img src="{%static 'theme/images/logo.png'%}" alt="DADAILYMEMES_TITLE"/>
+        <!-- dab -->
         <main>
             {%block content%}
+
+
+
             {% endblock %}
         </main>
     </body>
