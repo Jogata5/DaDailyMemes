@@ -31,6 +31,7 @@ urlpatterns = [
     path('about', views.about, name="about"),
     path('signin', views.signin, name="signin"),
     path('contact', views.contact, name="contact"),
+    path('accounts/signup', views.signup ,name = "signup" ),
     path('accounts/profile',views.ProfileView.as_view(), name = "profile"),
 
      #Django auth

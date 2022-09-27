@@ -3,7 +3,6 @@
 {% block title %} Sign In {% endblock title%}
 
 {%block content%}
-Template sign in
 
 
 <h1>Sign In</h1>
@@ -18,7 +17,12 @@ Template sign in
       we bouta go HARD
       <h3>Reviews</h3>
       <h4>I LOVE THIS WEBSITE, CURED MY DEPRESSION! -Andrea <h4>
+      <h5>To Cure your depression, just click below! </h5>
+      {% url 'signup' as signup_url %}
+      <a href="{{signup_url}}">Sign Up</a>
+      <h4>I LOVE THIS WEBSITE, CURED MY DEPRESSION! -Andrea <h4>
 </body>
+
 
 
 {% endblock %}
