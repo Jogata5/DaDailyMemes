@@ -1,17 +1,26 @@
 {% extends 'base.html' %}
-
+{%load static%}
 {% block title %} About {% endblock title%}
 
 {%block content%}
 <!-- Template Contact -->
-
-<h1>
-  Contact Da Daily Memes Team
-</h1>
+<li class= "w3-bar">
+  <span class="w3-bar-item w3-button w3-xlarge w3-right"></span>
+  <div class="w3-bar-item">
+  <span class= "w3-large">Niccolo</span><br>
+  <img src=
+    "{%static 'theme/images/niccolo_pp.png'%}"
+    class="w3-bar-item w3-circle"
+    style="width:85px">
+  <span> niccolochuidian@csu.fullerton.edu </span>
+  </div>
+</li>
 <body>
-  Saul: saulandrade124@csu.fullerton.edu
-  Niccolo: 
-  Julian: jogata@csu.fullerton.edu
+
+  <li><h1>Contact the Team</h1></li>
+  <li>Saul: saulandrade124@csu.fullerton.edu</li>
+  <li>Niccolo: niccolochuidian@csu.fullerton.edu</li>
+  <li>Julian: jogata@csu.fullerton.edu</li>
 </body>
 
 
