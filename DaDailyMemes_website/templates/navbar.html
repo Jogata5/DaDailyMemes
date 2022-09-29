@@ -3,23 +3,31 @@
     .nav {
         background-color: #84BF1C;
         opacity: 0.6;
-        padding-top: 15px;
-        padding-right: 30px;
-        padding-bottom: 15px;
-        padding-left: 30px; 
+        padding: 20;
         border: medium solid #F3B541;
         border-radius: 8px;
         overflow: hidden;
+        background-color: #333;
+        font-family: Arial;
     }
+    .nav a {
+        float: left;
+        font-size: 16px;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        
+      }
 </style>
 
 <div class = "nav">
     {% url 'public:index' as index_url %}
-    <span>{% if request.path == index_url %}Home{% else%}<a href="{{ index_url }}">Home</a>{% endif %}</span>
+    {% if request.path == index_url %}<a><u>Home</u></a>{% else%}<a href="{{ index_url }}">Home</a>{% endif %}
     {% url 'public:about' as about_url %}
-    <span>{% if request.path == about_url %}About{% else%}<a href="{{ about_url}}">About</a>{% endif%}</span>
+    {% if request.path == about_url %}<a><u>About</u></a>{% else%}<a href="{{ about_url}}">About</a>{% endif%}
     {% url 'public:contact' as contact_url %} 
-    <span>{% if request.path == contact_url %}Contact{% else%}<a href="{{ contact_url }}">Contact</a>{% endif%}</span>
+    {% if request.path == contact_url %}<a><u>Contact</u></a>{% else%}<a href="{{ contact_url }}">Contact</a>{% endif%}
      
     <span style = "float:right">
         {% if user.is_authenticated %}

@@ -9,9 +9,5 @@ urlpatterns = [
 
     path("signin", auth_views.LoginView.as_view(template_name="signin.html"), name="signin"),
 
-    path("signup", auth_views.LogoutView.as_view(), name="signup"),
-    # path("admin/", admin.site.urls),
-    # path("", include("DaDailyMemes_website.apps.accounts.urls")),
-    # path('accounts/', include("DaDailyMemes_website.apps.accounts.urls"))
-    
+    path("signup", auth_views.LoginView.as_view(template_name="signup.html"), name="signup"),
 ]
