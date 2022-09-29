@@ -14,28 +14,14 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 # from django.views.generic.base import TemplateView
-from django.contrib.auth import views as auth_views
 
 from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path('', TemplateView.as_view(template_name="index.html"), name="index"),
-    # path('', TemplateView.as_view(template_name="about.html"), name="about"),
-    # path('', TemplateView.as_view(template_name="signin.html"), name="signin"),
-    # path('', TemplateView.as_view(template_name="contact.html"), name="index"),
 
-    path('', views.index, name="index"),
-    path('about', views.about, name="about"),
-    path('signin', views.signin, name="signin"),
-    path('contact', views.contact, name="contact"),
-    path('accounts/signup', views.signup ,name = "signup" ),
-    path('accounts/profile',views.ProfileView.as_view(), name = "profile"),
-
-     #Django auth
-    path('accounts/signin', auth_views.LoginView.as_view(template_name='accounts/signin.html'), name='signin'),
-    path('accounts/signout', auth_views.LogoutView.as_view(), name = 'signout')
-    #path('accounts/', include('django.contrib.auth.urls'))
+    path('', include('DaDailyMemes_website.apps.public.urls')),
+    path('accounts/', include('DaDailyMemes_website.apps.accounts.urls'))    
 ]
