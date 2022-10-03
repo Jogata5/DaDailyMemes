@@ -1,4 +1,7 @@
+<script type="text/javascript"> (function() { var css = document.createElement('link'); css.href = 'https://use.fontawesome.com/releases/v6.2.0/css/all.css'; css.rel = 'stylesheet'; css.type = 'text/css'; document.getElementsByTagName('head')[0].appendChild(css); })(); </script>
+
 <html>
+    
 <style>
     .nav ul{
         background-color: #050505;
@@ -28,6 +31,8 @@
         float: right;
     }
 </style>
+
+
 <script src="https://kit.fontawesome.com/ee6145a480.js" crossorigin="anonymous"></script>
 <div class = "nav">
     <ul>
@@ -40,7 +45,7 @@
 
         <span>
             {% if user.is_authenticated %}
-                {% url 'profile' as profile_url%}
+                {% url 'profile' as profileurl%}
             
                 Yo, what it do {% if request.path == profile_url %}{{user.username}}!{% else %} 
                 <a href="{{ profile_url }}"></a>
