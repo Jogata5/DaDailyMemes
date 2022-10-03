@@ -30,14 +30,17 @@
     margin: 8px;
   }
   
-  img {
+  .pics {
     display: block;
     margin-left: auto;
     margin-right: auto;
     width: 50%;
+    border-radius: 60%;
+    border-color: antiquewhite;
+    border-width: 2px;
   }
 
-  img:hover {
+  .pics:hover {
     animation: shake 0.2s;
   }
 
@@ -111,7 +114,7 @@
 <div class="row">
   <div class="column">
     <div class="card">
-      <img src="{%static 'theme/images/niccolo_pp.png' %}" alt="Niccolo" style="width:50%; border-radius: 60%;">
+      <img class="pics" src="{%static 'theme/images/niccolo_pp.png' %}" alt="Niccolo" style="width:43.65%">
       <div class="container">
         <h2>Niccolo Chuidian</h2>
         <p class="title">Founder</p>
@@ -124,7 +127,7 @@
 
   <div class="column">
     <div class="card">
-      <img src="{%static '/theme/images/Julian_Glasses.jpeg' %}" alt="Julian" style="width:57%; border-radius: 60%;">
+      <img class="pics" src="{%static '/theme/images/Julian_Glasses.jpeg' %}" alt="Julian">
       <div class="container">
         <h2>Julian Ogata</h2>
         <p class="title">Founder</p>
@@ -137,7 +140,7 @@
 
   <div class="column">
     <div class="card">
-      <img src="" alt="Saul" style="width:100%; border-radius: 60%;">
+      <img class="pics" src="" alt="Saul">
       <div class="container">
         <h2>Saul Andrade</h2>
         <p class="title">Founder</p>
