@@ -1,48 +1,64 @@
 <html>
 <style>
-    .nav {
-        background-color: #84BF1C;
-        opacity: 0.6;
-        padding: 20;
-        border: medium solid #F3B541;
-        border-radius: 8px;
+    .nav ul{
+        background-color: #050505;
         overflow: hidden;
-        background-color: #333;
         font-family: Arial;
+        margin: -10px;
+        grid-column: 1 / 4;
     }
     .nav a {
         float: left;
+        display: block;
         font-size: 16px;
         color: white;
+        background-color: #40423c72;
         text-align: center;
-        padding: 14px 16px;
+        padding: 14px 18px;
         text-decoration: none;
-        
-      }
+    }
+    .nav a:hover {
+        background-color: #b5b947;
+    }
+
+    .nav a.current {
+        background-color: #595d54;
+    }
+    .nav span{
+        float: right;
+    }
 </style>
-
+<script src="https://kit.fontawesome.com/ee6145a480.js" crossorigin="anonymous"></script>
 <div class = "nav">
+    <ul>
     {% url 'public:index' as index_url %}
-    {% if request.path == index_url %}<a><u>Home</u></a>{% else%}<a href="{{ index_url }}">Home</a>{% endif %}
+    {% if request.path == index_url %}<a class=current><i class="fa-solid fa-house"></i></a>{% else%}<a href="{{ index_url }}"><i class="fa-solid fa-house"></i></a>{% endif %}
     {% url 'public:about' as about_url %}
-    {% if request.path == about_url %}<a><u>About</u></a>{% else%}<a href="{{ about_url}}">About</a>{% endif%}
+    {% if request.path == about_url %}<a class="current"><u>About</u></a>{% else%}<a href="{{ about_url}}">About</a>{% endif%}
     {% url 'public:contact' as contact_url %} 
-    {% if request.path == contact_url %}<a><u>Contact</u></a>{% else%}<a href="{{ contact_url }}">Contact</a>{% endif%}
-     
-    <span style = "float:right">
-        {% if user.is_authenticated %}
-        {% url 'profile' as profile_url%}
+    {% if request.path == contact_url %}<a class="current"><u>Contact</u></a>{% else%}<a href="{{ contact_url }}">Contact</a>{% endif%} -->
+<!-- 
+    {% url 'public:index' as index_url %}
+    <a href="{{ index_url }}">Home</a>
+    {% url 'public:about' as about_url %}
+    <a href="{{ about_url}}">About</a>
+    {% url 'public:contact' as contact_url %} 
+    <a href="{{ contact_url }}">Contact</a> --> 
 
-            <span>Yo, what it do {% if request.path == profile_url %}{{user.username}}!{% else %} 
+        <span>
+            {% if user.is_authenticated %}
+                {% url 'profile' as profile_url%}
+            
+                Yo, what it do {% if request.path == profile_url %}{{user.username}}!{% else %} 
                 <a href="{{ profile_url }}"></a>
-                 {% endif%}
-            </span>
-            <span><a href="{% url  'account:signout' %}">Sign Out</a></span>
-        {% else %}
-            <span><a href="{% url  'account:signin' %}">Sign In</a></span>
-        {% endif%}
-    </span>
+            {% endif%}
 
+            <a href="{% url  'account:signout' %}">Sign Out</a>
+            {% else %}
+            <a href="{% url  'account:signin' %}">Sign In</a>
+            {% endif%}
+        </span>
+    </ul>
 </div>
 </html>
 
