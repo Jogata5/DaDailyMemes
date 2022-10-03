@@ -36,14 +36,7 @@
     {% url 'public:about' as about_url %}
     {% if request.path == about_url %}<a class="current"><u>About</u></a>{% else%}<a href="{{ about_url}}">About</a>{% endif%}
     {% url 'public:contact' as contact_url %} 
-    {% if request.path == contact_url %}<a class="current"><u>Contact</u></a>{% else%}<a href="{{ contact_url }}">Contact</a>{% endif%} -->
-<!-- 
-    {% url 'public:index' as index_url %}
-    <a href="{{ index_url }}">Home</a>
-    {% url 'public:about' as about_url %}
-    <a href="{{ about_url}}">About</a>
-    {% url 'public:contact' as contact_url %} 
-    <a href="{{ contact_url }}">Contact</a> --> 
+    {% if request.path == contact_url %}<a class="current"><u>Contact</u></a>{% else%}<a href="{{ contact_url }}">Contact</a>{% endif%}
 
         <span>
             {% if user.is_authenticated %}
