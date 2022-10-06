@@ -10,4 +10,6 @@ urlpatterns = [
     path("signin", auth_views.LoginView.as_view(template_name="signin.html"), name="signin"),
 
     path("signup", auth_views.LoginView.as_view(template_name="signup.html"), name="signup"),
+
+    path("signout", auth_views.LogoutView.as_view(), name = "signout")
 ]

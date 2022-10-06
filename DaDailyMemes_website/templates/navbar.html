@@ -47,10 +47,10 @@
 
         <span>
             {% if user.is_authenticated %}
-                {% url 'profile' as profileurl%}
+              {%url 'account:profile' as profile_url %}
             
-                Yo, what it do {% if request.path == profile_url %}{{user.username}}!{% else %} 
-                <a href="{{ profile_url }}"></a>
+                {% if request.path == profile_url %}{{user.username}}!{% else %} 
+                <a href="{{ profile_url }}">Profile</a>
             {% endif%}
 
             <a href="{% url  'account:signout' %}">Sign Out</a>
