@@ -1,0 +1,181 @@
+{% extends 'base.html' %}
+{%load static%}
+{% block title %} About {% endblock title%}
+
+{%block content%}
+<!-- Template Contact -->
+
+<style>
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  html {
+    box-sizing: border-box;
+  }
+  
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+  
+  .column {
+    float: left;
+    width: 33.3%;
+    margin-bottom: 16px;
+    padding: 0 8px;
+  }
+  
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(22, 59, 8, 0.4);
+    margin: 8px;
+  }
+  
+  .pics {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    border-radius: 60%;
+    border-color: antiquewhite;
+    border-width: 2px;
+  }
+
+  .pics:hover {
+    animation: shake 0.2s;
+  }
+
+  .about-section {
+    padding: 30px;
+    text-align: center;
+    background-color: #b5b947;
+    color: white;
+  }
+  
+  .container {
+    padding: 0 16px;
+  }
+  
+  .container::after, .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+  .title {
+    color: grey;
+  }
+  
+  .button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  .button:hover {
+    background-color: #555;
+  }
+  
+  @media screen and (max-width: 650px) {
+    .column {
+      width: 100%;
+      display: block;
+    }
+  }
+
+  @keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+  }
+</style>
+
+
+<div class="about-section">
+  <h1>Contact Page</h1>
+  <p>We the Meme Team behind this website</p>
+  <p>Contact us about any questions or concerns!</p>
+</div>
+
+<h2 style="text-align:center">Our Team</h2>
+<div class="row">
+  <div class="column">
+    <div class="card">
+      <img class="pics" src="{%static 'theme/images/niccolo_pp.png' %}" alt="Niccolo" style="width:43.65%">
+      <div class="container">
+        <h2>Niccolo Chuidian</h2>
+        <p class="title">Founder</p>
+        <p>The main meme artist and Front-end Dev.</p>
+        <p>Email: niccolochuidian@gmail.com </p>
+        <p><button class="button">Contact</button></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img class="pics" src="{%static '/theme/images/Julian_Glasses.jpeg' %}" alt="Julian">
+      <div class="container">
+        <h2>Julian Ogata</h2>
+        <p class="title">Founder</p>
+        <p>Front-end and Back-end Dev.</p>
+        <p>Email: Jogata@csu.fullerton.edu</p>
+        <p><button class="button">Contact</button></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img class="pics" src="" alt="Saul">
+      <div class="container">
+        <h2>Saul Andrade</h2>
+        <p class="title">Founder</p>
+        <p>Back-End Dev.</p>
+        <p>Email: saulandrade124@csu.fullerton.edu</p>
+        <p><button class="button">Contact</button></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% comment %} 
+<li class= "w3-bar">
+  <span class="w3-bar-item w3-button w3-xlarge w3-right"></span>
+  <div class="w3-bar-item">
+    <span class= "w3-large">Niccolo</span><br>
+      <img src=
+        "{%static 'theme/images/niccolo_pp.png'%}"
+        class="w3-bar-item w3-circle"
+        style="width:85px">
+    <span> niccolochuidian@csu.fullerton.edu </span>
+  </div>
+</li>
+<body> 
+
+  Saul: saulandrade124@csu.fullerton.edu <br>
+  Niccolo:  <br>
+  Julian: jogata@csu.fullerton.edu <br>
+
+  Saul: saulandrade124@csu.fullerton.edu
+  Niccolo:
+  Julian: jogata@csu.fullerton.edu
+
+</body> {% endcomment %}
+
+
+{% endblock %}
