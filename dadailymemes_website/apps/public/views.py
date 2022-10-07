@@ -15,4 +15,4 @@ def contact(request):
     return render(request, 'contact.html')
 
 class ProfileView(LoginRequiredMixin,TemplateView):
-    template_name = 'accounts/profile.html'
+    template_name = 'account/profile.html'
