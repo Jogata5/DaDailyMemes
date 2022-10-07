@@ -1,4 +1,4 @@
-"""DaDailyMemes_website URL Configuration
+"""dadailymemes_website URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.1/topics/http/urls/
@@ -22,6 +22,6 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    path('', include('DaDailyMemes_website.apps.public.urls')),
-    path('accounts/', include('DaDailyMemes_website.apps.accounts.urls'))    
+    path('', include('dadailymemes_website.apps.public.urls')),
+    path('accounts/', include('dadailymemes_website.apps.accounts.urls'))    
 ]
