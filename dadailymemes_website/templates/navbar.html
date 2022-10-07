@@ -1,0 +1,64 @@
+<script type="text/javascript"> (function() { var css = document.createElement('link'); css.href = 'https://use.fontawesome.com/releases/v6.2.0/css/all.css'; css.rel = 'stylesheet'; css.type = 'text/css'; document.getElementsByTagName('head')[0].appendChild(css); })(); </script>
+
+<html>
+    
+<style>
+    .nav ul{
+        background-color: #050505;
+        width: 100%%;
+        height: 100%%;
+        overflow: hidden;
+        font-family: Arial;
+        margin: -10px;
+        grid-column: 1 / 4;
+    }
+    .nav a {
+        float: left;
+        display: block;
+        font-size: 16px;
+        color: white;
+        background-color: #40423c72;
+        text-align: center;
+        padding: 14px 18px;
+        text-decoration: none;
+    }
+    .nav a:hover {
+        background-color: #b5b947;
+    }
+
+    .nav a.current {
+        background-color: #595d54;
+    }
+    .nav span{
+        float: right;
+    }
+</style>
+
+
+<script src="https://kit.fontawesome.com/ee6145a480.js" crossorigin="anonymous"></script>
+<div class = "nav">
+    <ul>
+    {% url 'public:index' as index_url %}
+    {% if request.path == index_url %}<a class=current><i class="fa-solid fa-house"></i></a>{% else%}<a href="{{ index_url }}"><i class="fa-solid fa-house"></i></a>{% endif %}
+    {% url 'public:about' as about_url %}
+    {% if request.path == about_url %}<a class="current"><u>About</u></a>{% else%}<a href="{{ about_url}}">About</a>{% endif%}
+    {% url 'public:contact' as contact_url %} 
+    {% if request.path == contact_url %}<a class="current"><u>Contact</u></a>{% else%}<a href="{{ contact_url }}">Contact</a>{% endif%}
+
+        <span>
+            {% if user.is_authenticated %}
+                {% url 'account:profile' as profile_url %}
+            
+                {% if request.path == profile_url %}{% else %} 
+                <a href="{{ profile_url }}">Profile</a>
+            {% endif%}
+
+            <a href="{% url  'account:signout' %}">Sign Out</a>
+            {% else %}
+            <a href="{% url  'account:signin' %}">Sign In</a>
+            {% endif%}
+        </span>
+    </ul>
+</div>
+</html>
+
