@@ -3,8 +3,68 @@
 {% block title %} Sign In {% endblock title%}
 
 {%block content%}
+<html>
+<head>
+
+<style>
+body {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+form{
+    border: 3px solid #f1f1f1;
+}
+input[type=text],input[type=password]{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+button{
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+button:hover{
+    opacity: 0.8;
+}
+.container{
+    padding: 16px;
+}
+</style>
+</head>
+<body>
+
+<h2>Sign In</h2>
+
+<form action="/action_page.php" method="post"> 
+
+<div class = "container">
+    <label for="uname"><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" name="uname" 
+    required>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" 
+    required>
+    
+    <button type="submit" 
+    a herf = 'account/signin'>Sign In</button>
+ 
+    <button tpye="signup">Sign Up</button>
+
+</form>
+</div>
 
 
+
+
+{% comment %}
 <h1>Sign In</h1>
 <form method="post">
     {%csrf_token%}
@@ -23,6 +83,6 @@
       <h4>I LOVE THIS WEBSITE, CURED MY DEPRESSION! -Andrea <h4>
 </body>
 
-
+{% endcomment %}
 
 {% endblock %}
