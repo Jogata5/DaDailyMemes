@@ -6,6 +6,11 @@
 {%block content%}
 
 <!-- Template homepage, index.html -->
+<style>
+        body {
+                background-image: url("{% static 'theme/images/catjam-cat.gif' %} ")
+        }
+</style>
 
 <body>
 <a href="{% url  'account:signin' %}"> 

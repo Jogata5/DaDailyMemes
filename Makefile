@@ -10,3 +10,8 @@ build-prod:
 compose-start:
 	docker-compose up --remove-orphans $(options)
 	
+compose_stop:
+	docker-compose down --remove-orphans $(options)
+
+compose-manage-py:
+	docker-compose run --rm $(option) website python manage.py $(cmd)
