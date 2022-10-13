@@ -6,9 +6,16 @@
 {%block content%}
 
 <!-- Template homepage, index.html -->
-
+<style>
+body{
+      background-image: url("{% static 'theme/images/monka.jpg' %}");
+      background-repeat: no-repeat;
+      backgorund-attachment: fixed;
+      background-size: cover;
+}
+</style>
 <body>
-<a href="{% url  'account:signin' %}"> 
+<a href="{% url  'account:signin' %}">
         <img src=
                 "{% static 'theme/images/signin.png' %}"
                 class = "w3-circle"
@@ -18,7 +25,7 @@
                 align = "left"
                 >
 </a>
-<a href="{% url 'account:signup' %}"> 
+<a href="{% url 'account:signup' %}">
         <img src=
                 "{% static 'theme/images/signup.png' %}"
                 class = "w3-circle"
