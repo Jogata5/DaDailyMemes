@@ -1,3 +1,4 @@
 # Developer requirements along with production requirements
+mypy==0.982
 
 -r prod.txt
