@@ -11,5 +11,7 @@ urlpatterns = [
 
     path("signup", auth_views.LoginView.as_view(template_name="signup.html"), name="signup"),
 
+    path("quiz",auth_views.LoginView.as_view(template_name="quiz,html"), name="quiz"),
+
     path("signout", auth_views.LogoutView.as_view(), name = "signout"),
 ]
