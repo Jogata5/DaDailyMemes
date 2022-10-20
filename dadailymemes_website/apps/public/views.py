@@ -16,7 +16,7 @@ def contact(request):
 
 
 
-class ProfileView():
+class ProfileView(LoginRequiredMixin,TemplateView):
     template_name = 'profile.html'
 
 ##LoginRequiredMixin,TemplateView
