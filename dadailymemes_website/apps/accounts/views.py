@@ -11,3 +11,5 @@ def signup(request):
     return render(request, 'signup.html')
 class ProfileView(LoginRequiredMixin,TemplateView):
     template_name = 'profile.html'
+
+##LoginRequiredMixin,TemplateView
