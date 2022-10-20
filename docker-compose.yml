@@ -29,10 +29,17 @@ services:
     command: python manage.py migrate
     volumes: *service-volumes
     environment: *app-variables
+    depends_on:
+      - postgres
 
 
   postgres:
-    image: dadailymemes_website:latest
+    image: postgres
     ports:
       - "5432:5432"
-    environment: *app-variables
+    environment: *database-variables
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+volumes:
+  db-data:
