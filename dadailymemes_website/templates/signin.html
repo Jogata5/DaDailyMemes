@@ -3,6 +3,40 @@
 {% block title %} Sign In {% endblock title%}
 
 {%block content%}
+
+<h1>Login</h1>
+<br/>
+
+
+		<form action="" method=POST>
+			{% csrf_token %}
+
+		<form>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Username</label>
+    <input type="text" class="form-control" name="username" aria-describedby="emailHelp">
+    
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" class="form-control" name="password">
+  </div>
+  
+
+
+			
+
+			<input type="submit" value="Submit" class="btn btn-secondary">
+
+      <button formaction="{% url 'account:signup' %}">Sign Up</button>
+
+		</form>
+		
+
+<br/><br/>	
+
+
+{% comment %}
 <html>
 <head>
 
@@ -22,7 +56,7 @@ input[type=text],input[type=password]{
   box-sizing: border-box;
 }
 button{
-    background-color: rgb(10,119,13);
+  background-color: #04AA6D;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -42,11 +76,9 @@ button:hover{
 
 <h2>Sign In</h2>
 
-<form methods="POST" actions=""> 
-    {%csrf_token%}
+<form action="/action_page.php" method="post"> 
 
 <div class = "container">
-   
     <label for="uname"><b>Username</b></label>
     <input type="text" placeholder="Enter Username" name="uname" 
     required>
@@ -54,16 +86,15 @@ button:hover{
     <label for="psw"><b>Password</b></label>
     <input type="password" placeholder="Enter Password" name="psw" 
     required>
-   
     
-    <button type="submit" >Sign In</button>
-    </form>
-    
-    <button formaction="{% url 'account:signup' %}"> Sign Up</button>
-    
+    <button type="submit" 
+    a herf = 'account/signin'>Sign In</button>
+ 
+    <button tpye="signup">Sign Up</button>
+
+</form>
 </div>
-
-
+{% endcomment %}
 
 
 {% comment %}
@@ -84,7 +115,6 @@ button:hover{
       <a href="{{signup_url}}">Sign Up</a>
       <h4>I LOVE THIS WEBSITE, CURED MY DEPRESSION! -Andrea <h4>
 </body>
-
 {% endcomment %}
 
 {% endblock %}

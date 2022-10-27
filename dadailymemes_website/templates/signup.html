@@ -5,85 +5,37 @@
 {%block content%}
 <!--Template signup-->
 
-<html>
-<head>
-<style>
-    body{
-        font-family: 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-    * {box-sizing:border-box }
-    input[type=text], input[type=password]{
-        width: 100%;
-        font-size: 28px;
-        padding: 15px;
-        margin: 5px 0 22px 0;
-        display: inline-block;
-        border: none;
-        background: #f1f1f1;
-    }
-    label{
-        font-size: 15px;
-    }
-    input[type=text]:focus, input[type=password]:focus{
-        background-color: #ddd;
-        outline: none;
-    }
-    hr{
-        border: 1px solid #f1f1f1;
-        margin-bottom: 25px;
-    }
-    button{
-        font-size: 18px;
-        font-weight:bold;
-        background-color: rgb(10,119,13);
-        color:white;
-        padding: 14px 20px;
-        margin: 8px 0;
-        border: none;
-        cursor: pointer;
-        width: 100%;
-        opacity:0.9;
-    }
-    button:hover{
-        opacity: 1;
-    }
-    .cancel{
-        padding:14px 20px;
-        background-color:ff3d2f;
-    }
-    .fromContainer{
-        padding:16px;
-    }
-    .formContainer p{
-        font-size:28px;
-    }
-    </style>
-    <body>
-        <form>
-        <div class="formContainer">
-        <h1>Sign Up Form</h1>
-        <hr>
-        <label for="username"><b>Username</b></label>
-        <input type="text" placeholder="Enter Username" name="username" required>
-        <label for="email"><b>Email</b></label>
-        <input type="text" placeholder="Enter Email" name="email" required>
-        <label for="phonenum"><b>Phone number</b></label>
-        <input type="text" placeholder="Optional" name="phonenum">
-        <label for="password"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="password" required>
-        <label for="repeatPassword"><b>Re-enter Password</b></label>
-        <input type="password" placeholder="Re-enter Password" name="repeatPassword"
-        required>
-        <p>By creating an account you agree to our Daily dose of Memes<p>
-        <div>
-        <button type="submit" class="signup">Point of No Return</button>
-        </div>
-        </div>
-        </form>
-        </body>
-        </html>
+{% if form.errors %}
+    <div class="alert warning alert-disimssible fade show" role="alert">
+        There was an error with your form
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    
+{% endif %}
 
-        {% endblock %}
+    <div class="shadow p-4 mb-5 bg-body rounded">
+        <h1>Register</h1>
+<br/>
+
+        <form action="{% url 'account:signup' %}" method="POST">
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+<br/><br/>
+            <input type="submit" value="Submit" class="btn btn-secondary">
+
+
+        </form>
+
+</div>
+<br/><br/>
+
+{% endblock %}
+
+
+
+
 
 
 
@@ -105,6 +57,6 @@ required>
 id="psw repeat" required>
 <hr>
 
-<button toype = "submit" class = "registerbtn"> Register</button>
+<button type = "submit" class = "registerbtn"> Register</button>
 {% endcomment %}
 
