@@ -19,7 +19,7 @@ def signin_user(request):
             return redirect('account:signin')
 
     else:
-            return render(request,'templates:signin.html', {}) ##auth login name unknown yet till CREATED
+            return render(request,'signin.html', {}) ##auth login name unknown yet till CREATED
 
 def signout_user(request):
     logout(request)
@@ -33,16 +33,16 @@ def signup_user(request):
             form.save()
             username = form.cleaned_data['username']
             password = form.cleaned_data['password1']
-            user = authenticate(username=username,password=password)
+            user = authenticate( username=username , password=password )
             login(request,user)
             messages.success(request,("Poggers, you're signed up"))
             return redirect('public:index')
     else:
-            form = RegisterUserForm()
+        form = RegisterUserForm()
 
-    return render(request,'templates:signup.html'),{
+    return render(request,'signup.html',{
         'form':form,
-        } #instead of register its signup
+        }) #instead of register its signup
 
 ##class ProfileView(LoginRequiredMixin,TemplateView):
 ##    template_name = 'profile.html'
