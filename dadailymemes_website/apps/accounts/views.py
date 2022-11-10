@@ -2,6 +2,8 @@
 # from django.template import loader
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
+from django.views.generic.base import TemplateView
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages 
 from django.contrib.auth.forms import UserCreationForm
 from .forms import RegisterUserForm
@@ -19,7 +21,7 @@ def signin_user(request):
             return redirect('account:signin')
 
     else:
-            return render(request,'templates:signin.html', {}) ##auth login name unknown yet till CREATED
+            return render(request,'signin.html', {}) ##auth login name unknown yet till CREATED
 
 def signout_user(request):
     logout(request)
@@ -33,16 +35,16 @@ def signup_user(request):
             form.save()
             username = form.cleaned_data['username']
             password = form.cleaned_data['password1']
-            user = authenticate(username=username,password=password)
+            user = authenticate( username=username , password=password )
             login(request,user)
             messages.success(request,("Poggers, you're signed up"))
             return redirect('public:index')
     else:
-            form = RegisterUserForm()
+        form = RegisterUserForm()
 
-    return render(request,'templates:signup.html'),{
+    return render(request,'signup.html',{
         'form':form,
-        } #instead of register its signup
+        }) #instead of register its signup
 
-##class ProfileView(LoginRequiredMixin,TemplateView):
-##    template_name = 'profile.html'
+class ProfileView(LoginRequiredMixin,TemplateView):
+    template_name = 'profile.html'

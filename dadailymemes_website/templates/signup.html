@@ -5,38 +5,39 @@
 {%block content%}
 <!--Template signup-->
 
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 {% if form.errors %}
-    <div class="alert warning alert-disimssible fade show" role="alert">
-        There was an error with your form
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-    
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            There was an error with your form...
+          </div>
+
+
+
 {% endif %}
 
     <div class="shadow p-4 mb-5 bg-body rounded">
-        <h1>Register</h1>
+    <h1>Register</h1>
 <br/>
 
-        <form action="{% url 'account:signup' %}" method="POST">
+
+        <form action="{% url 'account:signup' %}" method=POST>
             {% csrf_token %}
 
             {{ form.as_p }}
 
+
+
+
+
 <br/><br/>
             <input type="submit" value="Submit" class="btn btn-secondary">
-
 
         </form>
 
 </div>
 <br/><br/>
-
 {% endblock %}
-
-
-
-
-
 
 
 {% comment %}

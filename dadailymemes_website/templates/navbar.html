@@ -44,6 +44,8 @@
     {% if request.path == about_url %}<a class="current"><u>About</u></a>{% else%}<a href="{{ about_url}}">About</a>{% endif%}
     {% url 'public:contact' as contact_url %} 
     {% if request.path == contact_url %}<a class="current"><u>Contact</u></a>{% else%}<a href="{{ contact_url }}">Contact</a>{% endif%}
+    {% url 'public:giphy_test' as giphy_url %}
+    {% if request.path == giphy_url %}<a class="current"><u>Giphy</u></a>{% else%}<a href="{{ giphy_url }}">Giphy</a>{% endif%}
 
         <span>
             {% if user.is_authenticated %}
