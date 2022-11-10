@@ -2,6 +2,8 @@
 # from django.template import loader
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
+from django.views.generic.base import TemplateView
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages 
 from django.contrib.auth.forms import UserCreationForm
 from .forms import RegisterUserForm
@@ -44,5 +46,5 @@ def signup_user(request):
         'form':form,
         }) #instead of register its signup
 
-##class ProfileView(LoginRequiredMixin,TemplateView):
-##    template_name = 'profile.html'
+class ProfileView(LoginRequiredMixin,TemplateView):
+    template_name = 'profile.html'

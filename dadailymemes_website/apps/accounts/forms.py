@@ -5,13 +5,15 @@ from django import forms
 
 class RegisterUserForm(UserCreationForm):
     email = forms.EmailField(widget=forms.EmailInput(attrs={'class':'form-control'}))
+    phone = forms.CharField(max_length=10, widget=forms.TextInput(attrs={'type':'form-control'}), required=False)
+#    Meme = forms.CheckboxSelectMultiple()
 #    first_name = forms.CharField(max_length=50, widget=forms.TextInput(attrs={'class':'form-control'}))
 #    last_name = forms.CharField(max_length=50, widget=forms.TextInput(attrs={'class':'form-control'}))
 
 
     class Meta:
         model = User
-        fields = ('username','email', 'password1', 'password2')
+        fields = ('username','email', 'phone' ,'password1', 'password2')
 
 
     def __init__(self, *args, **kwargs):

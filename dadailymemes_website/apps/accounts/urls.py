@@ -5,7 +5,7 @@ from . import views
 
 app_name="account"
 urlpatterns = [
-#    path("profile", views.ProfileView.as_view(), name="profile"),
+    path("profile", views.ProfileView.as_view(), name="profile"),
 
     path('signin_user', auth_views.LoginView.as_view(template_name="signin.html"), name="signin"),
 
