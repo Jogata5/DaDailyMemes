@@ -8,36 +8,43 @@
 <!-- Template homepage, index.html -->
 
 <style>
-body{
-      background-image: url("{% static 'theme/images/monka.jpg' %}");
+body {
+      background-image: url("{{ gif_img }}");
       background-repeat: no-repeat;
-      backgorund-attachment: fixed;
+      background-attachment: fixed;
       background-size: cover;
+}
+
+.foreground {
+        border: 5px solid black;
+        padding: 300px;
 }
 </style>
 
 <body>
-<a href="{% url  'account:signin' %}">
-        <img src=
-                "{% static 'theme/images/signin.jpeg' %}"
-                class = "w3-circle"
-                alt="Sign in button"
-                transform: scaleX(-1)
-                width = 300px
-                height = 300px
-                align = "left"
-                >
-</a>
-<a href="{% url 'account:signup' %}">
-        <img src=
-                "{% static 'theme/images/signup.jpeg' %}"
-                class = "w3-circle"
-                alt="Sign up button"
-                width = 300px
-                height = 300px
-                align= "right"
-                >
-</a>
+        <div class="foreground">
+                <a href="{% url  'account:signin' %}">
+                        <img src=
+                                "{% static 'theme/images/signin.jpeg' %}"
+                                class = "w3-circle"
+                                alt="Sign in button"
+                                transform: scaleX(-1)
+                                width = 300px
+                                height = 300px
+                                align = "left"
+                                >
+                </a>
+                <a href="{% url 'account:signup' %}">
+                        <img src=
+                                "{% static 'theme/images/signup.jpeg' %}"
+                                class = "w3-circle"
+                                alt="Sign up button"
+                                width = 300px
+                                height = 300px
+                                align= "right"
+                                >
+                </a>
+        </div>
 
 </body>
 

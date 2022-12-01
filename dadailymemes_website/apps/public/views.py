@@ -7,13 +7,18 @@ from .giphy import get_gif
 
 
 def index(request):
-    return render(request, 'index.html')
+    gif = get_gif()
+    context = {'gif_img' : gif}
+    return render(request, 'index.html',context)
 
 def about(request):
     return render(request, 'about.html')
 
 def contact(request):
     return render(request, 'contact.html')
+
+def timer(request):
+    return render(request, 'timer.html')
 
 class ProfileView(LoginRequiredMixin,TemplateView):
     template_name = 'account/profile.html'

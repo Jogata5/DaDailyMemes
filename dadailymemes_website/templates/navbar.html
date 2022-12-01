@@ -46,6 +46,8 @@
     {% if request.path == contact_url %}<a class="current"><u>Contact</u></a>{% else%}<a href="{{ contact_url }}">Contact</a>{% endif%}
     {% url 'public:giphy_test' as giphy_url %}
     {% if request.path == giphy_url %}<a class="current"><u>Giphy</u></a>{% else%}<a href="{{ giphy_url }}">Giphy</a>{% endif%}
+    {% url 'public:timer' as timer_url %}
+    {% if request.path == timer_url %}<a class="current"><u>Timer</u></a>{% else%}<a href="{{ timer_url }}">Timer</a>{% endif%}
 
         <span>
             {% if user.is_authenticated %}
