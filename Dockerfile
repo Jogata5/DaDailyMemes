@@ -34,3 +34,5 @@ COPY static/theme/images ./static/theme/images
 
 
 COPY . .
+
+RUN make compose-start
