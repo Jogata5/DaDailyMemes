@@ -34,5 +34,3 @@ COPY static/theme/images ./static/theme/images
 
 
 COPY . .
-
-RUN docker-compose up --remove-orphans $(options)
