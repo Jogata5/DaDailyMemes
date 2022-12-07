@@ -28,14 +28,14 @@ class RegisterUserForm(UserCreationForm):
         self.fields['password1'].widget.attrs['class'] = 'form-control'
         self.fields['password2'].widget.attrs['class'] = 'form-control'
 
-    def CleanUserName(self):
-        username = self.cleaned_data['username']
+    def validUserName(self):
+        username = self.fields.get('username')
         if User.objects.exclude(pk=self.instance.pk).filter(username=username).exists():
             raise forms.ValidationError(u'Username "%s" is already in use.' % username)
         return username
     
-    def GetUserName(self):
-        return self.cleaned_data['username']
+    def getUserName(self):
+        return self.fields.get('username')
 
 class UserUpdateForm(forms.ModelForm):
 

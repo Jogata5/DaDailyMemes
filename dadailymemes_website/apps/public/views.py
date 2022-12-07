@@ -18,6 +18,9 @@ def contact(request):
     return render(request, 'contact.html')
 
 def timer(request):
+    
+
+
     return render(request, 'timer.html')
 
 class ProfileView(LoginRequiredMixin,TemplateView):
