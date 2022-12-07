@@ -75,6 +75,7 @@ WSGI_APPLICATION = 'dadailymemes_website.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+
 POSTGRES_DB = os.environ.get("POSTGRES_DB", default='')
 POSTGRES_USER = os.environ.get("POSTGRES_USER", default='')
 POSTGRES_PASSWORD = os.environ.get("POSTGRES_PASSWORD", default='')
@@ -91,7 +92,6 @@ DATABASES = {
         "PORT": 5432,
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
