@@ -2,6 +2,7 @@ from email.policy import default
 from django.db import models
 from django.contrib.auth.models import User
 from multiselectfield import MultiSelectField
+from datetime import datetime, timedelta
 #from django import forms 
 
 MEME_CATEGORIES = (
@@ -33,10 +34,13 @@ class UserProfile(models.Model):
     def __str__(self):
         return self.user.username
 
-class EmailJob(models.Model):
+class EmailJob(models.Model):   
+    current_date = datetime.now()
+    delta = timedelta(days=1)
+    
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    job_time = models.TimeField(auto_now=True)
-    next_job = job_time.replace(hour=(job_time.hour+24) % 24)
+    job_time = models.DateTimeField(auto_now=True)    
+    next_job = current_date + delta
     gif = models.JSONField(null=False)
         
     def __str__(self) -> str:
