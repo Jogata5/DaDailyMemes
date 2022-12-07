@@ -37,9 +37,8 @@ def signup_user(request):
         form = RegisterUserForm(request.POST)
         profile_form = UserProfileForm(request.POST)
         #form = RegisterForm(request.POST 
-        if form.validUserName():
-            username = form.getUserName()
-            print(username)
+        if form.validUserName() or form.validEmail():
+            username = form.fields.get('username')
             # squery = "SELECT * FROM auth_user WHERE username='"+username+"';"
             if form.is_valid() and profile_form.is_valid():
                 user = form.save()

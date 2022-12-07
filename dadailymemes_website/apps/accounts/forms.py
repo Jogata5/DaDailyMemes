@@ -34,8 +34,12 @@ class RegisterUserForm(UserCreationForm):
             raise forms.ValidationError(u'Username "%s" is already in use.' % username)
         return username
     
-    def getUserName(self):
-        return self.fields.get('username')
+    def validEmail(self):
+        email = self.fields.get("email")
+        if User.objects.exclude(pk=self.instance.pk).filter(email=email).exists():
+            raise forms.ValidationError(u'Email "%s" is already in use.' % email)
+        return email
+
 
 class UserUpdateForm(forms.ModelForm):
 
