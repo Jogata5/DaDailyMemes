@@ -20,13 +20,11 @@ def scheduleTimer():
                     genres.append(genre)
             job.gif = get_gif(genres)
         else:
-            EmailUser()
+            EmailUser(user)
 
-def EmailUser():
-    users = User.objects.all()
-    for user in users:
-        if checkTimer(user):
-            sendEmail(user)
+def EmailUser(user_arg):
+    if checkTimer(user_arg):
+        sendEmail(user_arg)
 
 def sendEmail(user_arg):
     user_email = user_arg.objects.get('email')
@@ -37,7 +35,8 @@ def sendEmail(user_arg):
     message = f"""From: From Person <{sender}>
     To: To Person <{receivers}>
     Subject: SMTP email test
-
+    
+    {gif}
 
     This is a test message.
     """

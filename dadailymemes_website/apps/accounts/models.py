@@ -41,7 +41,7 @@ class EmailJob(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     job_time = models.DateTimeField(auto_now=True)    
     next_job = current_date + delta
-    gif = models.JSONField(null=False)
+    gif = models.ImageField(null=False)
         
     def __str__(self) -> str:
         return self.user
