@@ -74,10 +74,6 @@ WSGI_APPLICATION = 'dadailymemes_website.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
-os.environ['POSTGRES_DB'] = 'dadailymemes-database'
-os.environ['POSTGRES_USER'] = 'dadailymemes-user'
-os.environ['POSTGRES_PASSWORD'] = 'postgres'
-os.environ['POSTGRES_HOST'] = '10.25.112.3'
 
 POSTGRES_DB = os.environ.get("POSTGRES_DB", default='')
 POSTGRES_USER = os.environ.get("POSTGRES_USER", default='')

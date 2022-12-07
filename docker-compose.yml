@@ -4,18 +4,18 @@ x-service-volumes: &service-volumes
   - ./:/app/rw.cached
 
 x-database-variables: &database-variables
-  POSTGRES_DB: postgres
-  POSTGRES_USER: postgres
+  POSTGRES_DB: dadailymemes-database
+  POSTGRES_USER: dadailymemes-user
   POSTGRES_PASSWORD: postgres
 
 x-app-variables: &app-variables
   <<: *database-variables
-  POSTGRES_HOST: postgres
+  POSTGRES_HOST: 34.83.166.149
 
 services:
   website:
     image: dadailymemes_website:latest
-    command: python manage.py runserver 0.0.0.0:8000 
+    command: python manage.py runserver 34.83.166.149:8000 
     volumes: *service-volumes
     depends_on:
       - db_migrate
