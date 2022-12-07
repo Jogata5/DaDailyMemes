@@ -10,20 +10,28 @@
         <title> {% block title %} DaDailyMemes {% endblock title%} </title>
         
     </head>
+
+    <style>
+        .logo {
+            text-align:center;
+            display: block;
+            margin: auto;
+        }
+    </style>
+
     <body >
         {% include 'navbar.html'%}
-
         <img src=
                 "{%static 'theme/images/kermit_logo.jpeg'%}"
                 alt="DADAILYMEMES_TITLE"
                 width = "500px"
                 height = "250px"
-                style="overflow:hidden; position:relative; top:10px; left:425px;
-                 border-radius: 30%; border-color: black; background-color:grey;"
+                style="overflow:hidden; position:relative;
+                border-radius: 30%; border-color: black; background-color:grey;"
+                class="logo"
         >
 
 
-        >
         <!-- dab -->
         
         <main>
