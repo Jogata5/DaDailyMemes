@@ -3,3 +3,4 @@ Django==3.2.15
 psycopg2==2.8.4
 giphy_client==1.0.0
 django-multiselectfield
+apscheduler==3.9.1

@@ -9,19 +9,41 @@ MEME_CATEGORIES = (
     ('fail','fail'),
     ('confused','confused'),
     ('gaming','gaming'),
-
+    ('cute', 'cute'),
 )
 
 # Create your models here.
 
+class Genres(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    
+    animals = models.BooleanField()
+    fail = models.BooleanField()
+    confused = models.BooleanField()
+    gaming = models.BooleanField()
+    cute = models.BooleanField()
+
 class UserProfile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE,primary_key=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE,primary_key=True)   
+    has_job = models.BooleanField()
+
 
     meme_categories = MultiSelectField(choices = MEME_CATEGORIES, null = True)
 
     def __str__(self):
         return self.user.username
 
+class EmailJob(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    job_time = models.TimeField(auto_now=True)
+    next_job = job_time.replace(hour=(job_time.hour+24) % 24)
+    gif = models.JSONField(null=False)
+        
+    def __str__(self) -> str:
+        return self.user
+        
+
+    
 
 """
 
