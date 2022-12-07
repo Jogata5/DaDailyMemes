@@ -1,5 +1,6 @@
 # from django.http import HttpResponse
 # from django.template import loader
+from django.db import connection
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.views.generic.base import TemplateView
@@ -35,21 +36,25 @@ def signup_user(request):
     if request.method == "POST":
         form = RegisterUserForm(request.POST)
         profile_form = UserProfileForm(request.POST)
-        #form = RegisterForm(request.POST)
-        if form.is_valid() and profile_form.is_valid():
-            user = form.save()
+        #form = RegisterForm(request.POST 
+        if form.CleanUserName():
+            username = form.GetUserName()
+            print(username)
+            # squery = "SELECT * FROM auth_user WHERE username='"+username+"';"
+            if form.is_valid() and profile_form.is_valid():
+                user = form.save()
 
-            proflie = profile_form.save(commit=False)
-            proflie.user= user 
+                proflie = profile_form.save(commit=False)
+                proflie.user= user 
 
-            proflie.save()
+                proflie.save()
 
-            username = form.cleaned_data['username']
-            password = form.cleaned_data['password1']
-            user = authenticate( username=username , password=password )
-            login(request,user)
-            messages.success(request,("Poggers, you're signed up"))
-            return redirect('public:index')
+                username = form.cleaned_data['username']
+                password = form.cleaned_data['password1']
+                user = authenticate( username=username , password=password )
+                login(request,user)
+                messages.success(request,("Poggers, you're signed up"))
+                return redirect('public:index')
     else:
         form = RegisterUserForm()
         profile_form = UserProfileForm()
