@@ -10,7 +10,7 @@ x-database-variables: &database-variables
 
 x-app-variables: &app-variables
   <<: *database-variables
-  POSTGRES_HOST: 10.25.112.3
+  POSTGRES_HOST: 35.185.198.0
 
 services:
   website:
