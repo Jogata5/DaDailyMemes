@@ -26,7 +26,7 @@ class Genres(models.Model):
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE,primary_key=True)   
-    has_job = models.BooleanField()
+    has_job = models.BooleanField(False)
 
 
     meme_categories = MultiSelectField(choices = MEME_CATEGORIES, null = True)
