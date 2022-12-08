@@ -2,7 +2,7 @@ import random as rand
 import giphy_client
 from giphy_client.rest import ApiException
 
-def get_gif():
+def get_gif(genres):
     randomArr = ["Bruh", "PepeSad", "Hamburger", "Happy", "Doge"]
 
 # create an instance of the API class
