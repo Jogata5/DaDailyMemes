@@ -4,17 +4,58 @@
 
 {%block content%}
 <!--Template signup-->
+{% comment %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> signup </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+</head>
+<body>
+
+    {% for data in queryset %}
+    <div class="list-group mb-3">
+      <a href="#" class="list-group-item list-group-item-action">username: {{data.name}}</a>
+      <a href="#" class="list-group-item list-group-item-action">email: {{data.email}}</a>
+      <a href="#" class="list-group-item list-group-item-action">password1: {{data.password1}}</a>
+      <a href="#" class="list-group-item list-group-item-action">password2: {{data.password2}}</a>
+    </div>
+    {% endfor %}
+
+    <div class="container mt-5">
+        <form action="{% url 'account:signup' %}" method="POST">
+           <!-- for csrf token -->
+            {% csrf_token %}
+            <div class="form-group mb-3"><label>User Name</label>
+                <!-- double curly braces is used to display data from the database -->
+                {{form.name}}
+                {{form.name.errors}}
+            </div>
+            <div class="form-group mb-3"><label>Email</label>
+                {{form.email}}
+                {{form.email.errors}}
+            </div>
+            <div class="form-group mb-3"><label>Password</label>
+                {{form.password1}}
+                {{form.password1.errors}}
+            </div>
+            <div class="form-group mb-3"><label>Re-enter password</label>
+                {{form.password2}}
+                {{form.password2.errors}}
+            </div>
+            <input type="submit" class="btn btn-outline-success" >
+            
+        </form>
+    </div>
+</body>
+
+{% endblock %}
+
+{% endcomment %}
 
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-{% if form.errors %}
-    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-            There was an error with your form...
-          </div>
-
-
-
-{% endif %}
 
     <div class="shadow p-4 mb-5 bg-body rounded">
     <h1>Register</h1>
@@ -25,6 +66,7 @@
             {% csrf_token %}
 
             {{ form.as_p }}
+            {{ profile_form.as_p }}
 
 
 

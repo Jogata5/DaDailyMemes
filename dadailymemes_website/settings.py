@@ -75,23 +75,23 @@ WSGI_APPLICATION = 'dadailymemes_website.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+""""
 POSTGRES_DB = os.environ.get("POSTGRES_DB", default='')
 POSTGRES_USER = os.environ.get("POSTGRES_USER", default='')
 POSTGRES_PASSWORD = os.environ.get("POSTGRES_PASSWORD", default='')
 POSTGRES_HOST = os.environ.get("POSTGRES_HOST", default='')
-
+"""
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': POSTGRES_DB,
-        'USER': POSTGRES_USER,
-        'PASSWORD': POSTGRES_PASSWORD,
-        'HOST': POSTGRES_HOST,
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
+        'HOST': 'localhost',
         "PORT": 5432,
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -139,3 +139,10 @@ LOGOUT_REDIRECT_URL = "public:index"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = 'dadailymemez@gmail.com'
+EMAIL_HOST_PASSWORD = 'postgres!'
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = True
