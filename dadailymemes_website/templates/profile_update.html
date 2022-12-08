@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %} profile_update {% endblock %}
+
+{%block content%}
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+
+<h1>
+    {{user.username}}'s profile
+  </h1>
+  
+  <h6 class="text-right">Edit Profile</h6>
+
+  <form  action="profile_update.html"  method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+{{ user_form.as_p }}
+{{ profile_form.as_p}}
+
+  </form>
+  
+  {% endblock %}
+  
