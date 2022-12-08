@@ -7,7 +7,8 @@ from .giphy import get_gif
 
 
 def index(request):
-    gif = get_gif()
+    # gif = get_gif()
+    gif = ""
     context = {'gif_img' : gif}
     return render(request, 'index.html',context)
 
