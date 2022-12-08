@@ -32,6 +32,7 @@ ALLOWED_HOSTS = ['0.0.0.0','localhost','127.0.0.1', '104.175.229.90', '34.83.166
 # Application definition
 
 INSTALLED_APPS = [
+    'accounts.apps.AccountConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -39,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'dadailymemes_website.apps.accounts',
+    'multiselectfield',
 ]
 
 MIDDLEWARE = [

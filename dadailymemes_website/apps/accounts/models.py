@@ -4,13 +4,6 @@ from django.contrib.auth.models import User
 from multiselectfield import MultiSelectField
 #from django import forms 
 
-MEME_CATEGORIES = (
-    ('animals','animals'),
-    ('fail','fail'),
-    ('confused','confused'),
-    ('gaming','gaming'),
-
-)
 
 # Create your models here.
 
@@ -21,6 +14,19 @@ class UserProfile(models.Model):
 
     def __str__(self):
         return self.user.username
+
+class Genre(models.Model):
+    MEME_CATEGORIES = (
+    ('animals','animals'),
+    ('fail','fail'),
+    ('confused','confused'),
+    ('gaming','gaming'),
+
+)
+    user = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
+    meme_categories = MultiSelectField(choices = MEME_CATEGORIES, null = True)
+
+    
 
 
 """
