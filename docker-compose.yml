@@ -5,7 +5,7 @@ x-service-volumes: &service-volumes
 
 x-database-variables: &database-variables
   POSTGRES_DB: dadailymeme-data
-  POSTGRES_USER: dadailymeme-user
+  POSTGRES_USER: dadailymems-user
   POSTGRES_PASSWORD: postgres
 
 x-app-variables: &app-variables
