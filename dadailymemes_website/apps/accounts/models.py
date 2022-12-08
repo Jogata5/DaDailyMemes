@@ -10,8 +10,6 @@ from multiselectfield import MultiSelectField
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE,primary_key=True)
 
-    meme_categories = MultiSelectField(choices = MEME_CATEGORIES, null = True)
-
     def __str__(self):
         return self.user.username
 
