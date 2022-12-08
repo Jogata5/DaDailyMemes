@@ -27,7 +27,8 @@ class ProfileView(LoginRequiredMixin,TemplateView):
     template_name = 'account/profile.html'
 
 def giphy_test(request):
-    gif = get_gif()
+    # gif = get_gif()
+    gif =""
     context = {'gif_img' : gif}
     return render(request, 'giphy_test.html', context)
 

@@ -8,7 +8,7 @@ def get_gif(genres):
 # create an instance of the API class
     api_instance = giphy_client.DefaultApi()
     api_key = 'DsslPCcp2zj711V9O6cnEgDO1mzzMcXc' # str | Giphy API Key.
-    q = rand.choice(randomArr) # str | Search query term or prhase.
+    q = rand.choice(genres) # str | Search query term or prhase.
     limit = 25 # int | The maximum number of records to return. (optional) (default to 25)
     offset = 0 # int | An optional results offset. Defaults to 0. (optional) (default to 0)
     rating = 'g' # str | Filters results by specified rating. (optional)
