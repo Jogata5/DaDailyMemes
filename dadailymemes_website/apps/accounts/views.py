@@ -1,5 +1,6 @@
 # from django.http import HttpResponse
 # from django.template import loader
+from time import sleep
 from django.db import connection
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
@@ -52,7 +53,9 @@ def signup_user(request):
                 password = form.cleaned_data['password1']
                 user = authenticate( username=username , password=password )
                 login(request,user)
-                messages.success(request,("Poggers, you're signed up"))
+                messages.success(request,("Poggers, you're signed up\n The digital mailman will be delivering your email soon!"))
+                
+                sleep(1)
                 return redirect('public:index')
     else:
         form = RegisterUserForm()
