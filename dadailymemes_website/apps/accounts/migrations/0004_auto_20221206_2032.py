@@ -12,11 +12,11 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.RemoveField(
-            model_name='userproflie',
+            model_name='userprofile',
             name='memes',
         ),
         migrations.AddField(
-            model_name='userproflie',
+            model_name='userprofile',
             name='meme_categories',
             field=multiselectfield.db.fields.MultiSelectField(choices=[('animals', 'animals'), ('fail', 'fail'), ('confused', 'confused'), ('gaming', 'gaming')], max_length=28, null=True),
         ),
