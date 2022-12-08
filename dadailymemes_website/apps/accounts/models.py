@@ -10,7 +10,7 @@ MEME_CATEGORIES = (
     ('fail','fail'),
     ('confused','confused'),
     ('gaming','gaming'),
-    ('cute', 'cute'),
+
 )
 
 # Create your models here.
@@ -22,7 +22,7 @@ class Genres(models.Model):
     fail = models.BooleanField()
     confused = models.BooleanField()
     gaming = models.BooleanField()
-    cute = models.BooleanField()
+
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE,primary_key=True)   
