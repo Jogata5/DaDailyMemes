@@ -6,7 +6,12 @@ from django.views.generic.base import TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages 
 from django.contrib.auth.forms import UserCreationForm
-from .forms import RegisterUserForm
+from .forms import RegisterUserForm, UserProfileForm, UserUpdateForm, ProfileUpdateForm
+from django.views import generic 
+from django.urls import reverse_lazy
+from django.core.mail import send_mail
+
+
 
 def signin_user(request):
     if request.method == "POST":
@@ -28,11 +33,20 @@ def signout_user(request):
     messages.success(request, ("<PepeSadge emote>"))
     return redirect('public:index')
 
+
 def signup_user(request): 
     if request.method == "POST":
         form = RegisterUserForm(request.POST)
-        if form.is_valid():
-            form.save()
+        profile_form = UserProfileForm(request.POST)
+        #form = RegisterForm(request.POST)
+        if form.is_valid() and profile_form.is_valid():
+            user = form.save()
+
+            proflie = profile_form.save(commit=False)
+            proflie.user= user 
+
+            proflie.save()
+
             username = form.cleaned_data['username']
             password = form.cleaned_data['password1']
             user = authenticate( username=username , password=password )
@@ -41,10 +55,52 @@ def signup_user(request):
             return redirect('public:index')
     else:
         form = RegisterUserForm()
+        profile_form = UserProfileForm()
+        #form = RegisterForm(request.POST)
 
     return render(request,'signup.html',{
-        'form':form,
+        'form':form, 'profile_form' : profile_form
         }) #instead of register its signup
+
+"""
+def signup_user(request):
+    form = RegisterUserForm(request.POST or None)
+    if request.method == "POST":
+        form.save()
+        return redirect('public:index')
+    context = {"form":form}
+    return render(request, 'signup.html', context)
+"""
+
+def timer(request):
+    return render(request, 'timer.html')
+
 
 class ProfileView(LoginRequiredMixin,TemplateView):
     template_name = 'profile.html'
+    
+
+class UpdateUserView(generic.UpdateView):
+    form_class =  {'UserUpdateForm':UserUpdateForm,
+                    'ProfileUpdateForm':ProfileUpdateForm,}
+
+    template_name = "profile_update.html"
+    success_url = reverse_lazy('public:index')
+
+    def get_object(slef):
+        return slef.request.user
+
+
+"""
+ ##### work on update once home (UserProfile)####   
+def profile_update(request):
+    if request.method =='POST':
+        user_form = UserUpdateForm(request.POST , instance=request.user)
+        profile_form = ProfileUpdateForm(request.POST , instance =request.user.userprofile)
+    else:
+        user_form = UserUpdateForm(instance=request.user)
+        profile_form = ProfileUpdateForm(instance=request.user.userprofile)
+    context = {'user_form':user_form, 'profile_form':profile_form,}
+
+    return render(request, 'profile_update.html',context)    
+"""
