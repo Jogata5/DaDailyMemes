@@ -15,13 +15,13 @@ MEME_CATEGORIES = (
 
 # Create your models here.
 
-class Genres(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+# class Genres(models.Model):
+#     user = models.ForeignKey(User, on_delete=models.CASCADE)
     
-    animals = models.BooleanField()
-    fail = models.BooleanField()
-    confused = models.BooleanField()
-    gaming = models.BooleanField()
+#     animals = models.BooleanField()
+#     fail = models.BooleanField()
+#     confused = models.BooleanField()
+#     gaming = models.BooleanField()
 
 
 class UserProfile(models.Model):
@@ -34,21 +34,19 @@ class UserProfile(models.Model):
     def __str__(self):
         return self.user.username
 
-class EmailJob(models.Model):   
-    current_date = datetime.now()
-    delta = timedelta(days=1)
+# class EmailJob(models.Model):   
+#     current_date = datetime.now()
+#     delta = timedelta(days=1)
     
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    job_time = models.DateTimeField(auto_now=True)    
-    next_job = current_date + delta
-    gif = models.ImageField(null=False)
+#     user = models.ForeignKey(User, on_delete=models.CASCADE)
+#     job_time = models.DateTimeField(auto_now=True)    
+#     next_job = current_date + delta
+#     gif = models.ImageField(null=False)
         
-    def __str__(self) -> str:
-        return self.user
-        
+#     def __str__(self) -> str:
+#         return self.user
 
     
-
 """
 
 class UserPersona(models.Model):
