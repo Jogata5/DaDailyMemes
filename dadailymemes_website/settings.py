@@ -32,7 +32,7 @@ ALLOWED_HOSTS = ['0.0.0.0','localhost','127.0.0.1', '104.175.229.90', '34.83.166
 # Application definition
 
 INSTALLED_APPS = [
-    'dadailymemes_website.apps.accounts.apps.AccountConfig',
+    'dadailymemes_website.apps.accounts.apps.AccountsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
