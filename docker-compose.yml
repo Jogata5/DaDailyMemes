@@ -4,13 +4,13 @@ x-service-volumes: &service-volumes
   - ./:/app/rw.cached
 
 x-database-variables: &database-variables
-  POSTGRES_DB: dadailymemes-database
+  POSTGRES_DB: postgres
   POSTGRES_USER: dadailymemes-user
   POSTGRES_PASSWORD: postgres
 
 x-app-variables: &app-variables
   <<: *database-variables
-  POSTGRES_HOST: 35.185.198.0
+  POSTGRES_HOST: 35.185.196.109
 
 services:
   website:
