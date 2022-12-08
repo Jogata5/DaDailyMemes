@@ -7,6 +7,7 @@ from datetime import time
 
 
 def scheduleTimer():
+    print("scheduling")
     users = User.objects.all()
     for user in users:
         if hasEmailJob(user) is False:
@@ -23,6 +24,8 @@ def scheduleTimer():
             EmailUser(user)
 
 def EmailUser(user_arg):
+    print("EmailUser")
+
     if checkTimer(user_arg):
         sendEmail(user_arg)
 

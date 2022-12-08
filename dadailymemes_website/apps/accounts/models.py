@@ -24,6 +24,7 @@ class Genre(models.Model):
     user = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
     meme_categories = MultiSelectField(choices = MEME_CATEGORIES, null = True)
 
+class EmailJobs(models.Model):
     
 
 
