@@ -1,6 +1,6 @@
 # DaDailyMemes
 
-#NOTICE
+# NOTICE
 Website is down
 
 Meme Sending Website
